@@ -258,7 +258,7 @@ public class PlacerScreen extends Screen {
     private List<Map.Entry<Identifier, TemplateDefinition>> getFilteredTemplates() {
         return TemplateData.getAllTemplates().entrySet()
                 .stream()
-                .filter(e -> e.getKey().getPath().toLowerCase().contains(searchQuery))
+                .filter(e -> e.getValue().translatableName().toLowerCase().contains(searchQuery))
                 .sorted(Comparator.comparingInt(e -> e.getValue().restrictions().placerPosition()))
                 .toList();
     }
